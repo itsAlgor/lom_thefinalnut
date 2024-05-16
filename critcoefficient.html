@@ -50,9 +50,9 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<center><h1>Crit Coefficient </h1></center>
+							<center><h1>Crit Coefficient</h1></center>
 							<span class="image main"><img src="images/crit multiplier.png" alt="" /></span>
-							<center><h2>Basic Info</h2>
+							<center><h2><u>Basic Info</u></h2>
 							<p>This table is used to determine your crit damage coefficient. The basic formula is </p>
 							<p>Crit Coefficient = (1 + (CRIT RATE * CRIT DMG))</p>
 							<p>In the simplest term, take your total crit rate and multiply your total crit dmg and add 1 to it. This tells you that every time you land a crit, your total dmg is increase by this amount. Say you have <b>40% crit rate and 500% crit dmg</b>.</p>
@@ -60,16 +60,49 @@
 							<p>Now to make things complicated, we introduce Crit Resistance</p>
 							<p>Crit Res is a stat that both players and enemies can have. Some bosses have tested to have 0% Crit Res, most bosses are vague number of Crit Res. The only two locations where you can find exact crit res is the Dark Trial and other players on the info screen.</p></center>
 							
-							<center><h2>How does Crit Res comes into play?</h2>
+							<center><h2><u>How does Crit Res comes into play?</u></h2>
 							<p>The updated formula is as follows:</p>
 							<p>Crit Multiplier = 1 + [CRIT RATE * (CRIT DMG/CRIT RES)]</p>
-							<p>Let's use the same example as above and introduce <b>200% Crit Res</b>, which is quite common. Some players have as high as 400%, and some bosses in Dark Trial can have upwards of 500-600% Crit Res.</p>
+							<p>Let's use the same example as above and introduce <b>400% Crit Res</b>, which is average. Some players have over 600%, and some bosses in Dark Trial can have upwards of 600-700% Crit Res.</p>
 							<p>Crit Coefficient = 1 + [0.4 x (5/4)] = 1.5</p>
-							<p>Yup, you went from doing 3 times more damage down to <b>1.5</b>, which is the generic amount. The crit coefficient has a cap of 1.5 because the game will always reward you 1.5x damage for landing a crit. It wouldn't make sense if someone CRIT RES is so high that your crit now do negative damage. Wouldn't make sense now would it.</p>
+							<p>Yup, you went from doing 3 times more damage down to <b>1.5</b>, which is the base amount. The crit coefficient has a floor cap of 1.5 because the game will always reward you 1.5x damage for landing a crit. It wouldn't make sense if someone CRIT RES is so high that your crit now do negative damage. Wouldn't make sense now would it.</p>
 							<p>Now that the basic explanation is out of the way, the table above provides crit rate in range of 10% and crit dmg in range of 50%, starting at 600%. The assumed Crit Res in this case is 500%, which is good to use as a gauge.</p></center>
 							
-							<center><h2>If you have any questions, feel free <br>
-								to join our discord and ask away!</h2></center>
+							<center><h2>Calculate Your Own Crit Coefficient!<BR>work in progress</h2>
+
+								<form id="add-form">
+									<label for="num1">Enter your crit rate</label>
+									<input type="number" id="num1"><br>
+									<label for="num2">Enter your total crit dmg</label>
+									<input type="number" id="num2"><br>
+									<label for="num2">Enter opponent CRIT RES (default = 500)</label>
+									<input type="number" id="num3"><br><br>
+								<div id="result"></div>
+									<input type="button" value="Calculate" onclick="javascript:myCalc(document.getElementById('num1').value, 
+									document.getElementById('num2').value, document.getElementById('num3').value)">
+								  </form>
+
+
+								<script>
+									function myCalc(num1, num2, num3)
+								{
+									if (num3 == 0) {
+										Crit = 1 + (num1/100 * (num2/num3))}
+									else  {document.getElementById("result").innerHTML = 'Crit Coefficient: '+ (parseFloat(num2) + parseFloat(num3));}
+								}
+								</script>    
+								
+								
+
+
+
+
+
+
+
+
+
+								</center>
 						</div>
 					</div>
 
