@@ -53,6 +53,31 @@
 						</center>
                     <head>
 						<style>
+							.padded-boxes {
+		    						display:flex;
+							  	flex-wrap:wrap;
+							    	gap:2rem; }
+							.padded-boxes > * {
+								width:100%;
+								background:#eee;
+								border-radius:.4rem; }
+							.padded-boxes .heading {
+								background:#f97171;
+								margin:0;
+								padding:1rem;
+								border-top-left-radius:.4rem;
+								border-top-right-radius:.4rem; }
+							.padded-boxes .padded {
+								padding:.1rem 1rem; }
+								
+							@media (min-width:768px) {
+								.padded-boxes > * {
+								width:calc((100% - 4rem) / 3); } 
+							}
+							
+	
+
+								
                         .flex-container {
 							display: flex;
 							gap:1rem;
@@ -68,12 +93,13 @@
 
                         </style>
                     </head>
+							
 
 
-<div class="flex-container">
-
-	<div class="flex-child">
-		<center><h1><u>Artifact</u></h1>
+<div class="padded-boxes">
+    <section>
+        <h3 class="heading">Artifact</h3>
+        <div class="padded">
 		<a href="#" class="image fit"><img src="images/foodtree.png" alt="" /></a>
 		<b>Passive</b>: 10% Global Atk<br>
 		<b>Active</b>: At start of battle and every 10 secs after, deals 6% max hp AOE dmg and reduce their attack speed and energy recovery speed by 30% for 3 secs.<br>
